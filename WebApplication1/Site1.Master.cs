@@ -121,15 +121,11 @@ namespace WebApplication1
             Session["fullname"] = "";
             Session["role"] = "";
             Session["status"] = "";
-
             LinkButton1.Visible = true;                                         // If no user logging in LinkButton1->'user login' should be visible
             LinkButton2.Visible = true;                                         // The same for LinkedButton2->'sign up'
-
             LinkButton3.Visible = false;                                        // If no one logging in 'log out' should not be shown
             LinkButton7.Visible = false;                                        // THe same for 'hello user'
-
             LinkButton6.Visible = true;                                         // If no user logging in LinkButton7->'admin login' should be visible
-
             LinkButton11.Visible = false;                                       // If no one logging in 'agents' should not be shown
             LinkButton12.Visible = false;                                       // THe same for 'appointments'
             LinkButton8.Visible = false;                                        // THe same for 'appointments management'
