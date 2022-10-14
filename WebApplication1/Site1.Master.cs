@@ -11,10 +11,8 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             try
             {
-
                 if (Session["role"].Equals(""))
                 {
                     LinkButton1.Visible = true;                                         // If no user logging in LinkButton1->'user login' should be visible
@@ -39,7 +37,7 @@ namespace WebApplication1
 
                     LinkButton3.Visible = true;                                         // If User logging in 'log out', will become visible
                     LinkButton7.Visible = true;                                         // THe same for 'hello user'
-                    LinkButton7.Text = "Hello  " +Session["username"].ToString();      // Output "Hello user_name"
+                    LinkButton7.Text = "Hello  " + Session["username"].ToString();      // Output "Hello user_name"
 
                     LinkButton11.Visible = true;                                        // If User logs in in 'agents' should not be shown
                     LinkButton12.Visible = false;                                       // THe same for 'appointments'
@@ -67,7 +65,7 @@ namespace WebApplication1
             {
 
             }
-            
+
         }
 
         protected void LinkButton6_Click(object sender, EventArgs e)
@@ -131,6 +129,8 @@ namespace WebApplication1
             LinkButton8.Visible = false;                                        // THe same for 'appointments management'
             LinkButton9.Visible = false;                                        // THe same for 'house management'
             LinkButton10.Visible = false;                                       // THe same for 'member management'
+
+            Response.Redirect("homepage.aspx");                                 // This line takes you back to 'Home' once logged out.
         }
     }
 }
