@@ -1,17 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminhouseinventory.aspx.cs" Inherits="WebApplication1.adminhouseinventory" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div classs="container-fluid">
+    <div classs="container container-fluid">
         <div class="row">
-
-            <div class="col-md-5">
-
+            <div class="col-xs-12 col-sm-5 col-m-5 col-lg-5">
                 <div class="card">
                     <div class="card-body">
-
                         <div class="row">
                             <div class="col">
                                 <center>
