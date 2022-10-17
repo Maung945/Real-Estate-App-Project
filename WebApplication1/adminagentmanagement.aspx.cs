@@ -15,7 +15,7 @@ namespace WebApplication1
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString; // Connection String
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.DataBind();                                           // This function refreshes & update the table on Website
 
         }
 
@@ -78,6 +78,7 @@ namespace WebApplication1
                 con.Close();
                 Response.Write("<script>alert('Agent Deleted Successfully');</script>");
                 clearForm();
+                GridView1.DataBind();                                       // This function refreshes & update the table on Website
             }
             catch (Exception ex)
             {
@@ -101,6 +102,7 @@ namespace WebApplication1
                     con.Close();
                     Response.Write("<script>alert('Agent Updated Successfully');</script>");
                     clearForm();
+                    GridView1.DataBind();                                   // This function refreshes & update the table on Website
                 }
                 catch (Exception ex)
                 {
@@ -127,6 +129,7 @@ namespace WebApplication1
                     con.Close();
                     Response.Write("<script>alert('Agent Added Successfully');</script>");
                     clearForm();
+                    GridView1.DataBind();
                 }
                 catch (Exception ex)
                 {
