@@ -3,25 +3,22 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <script type="text/javascript">
-      $(document).ready(function () {
-      
-          //$(document).ready(function () {
-              //$('.table').DataTable();
-         // });
-      
-          $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
-          //$('.table1').DataTable();
-      });
+        $(document).ready(function () {
+
+            //$(document).ready(function () {
+            //$('.table').DataTable();
+            // });
+
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+            //$('.table1').DataTable();
+        });
     </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <div classs="container">
         <div class="row">
-
             <div class="col-md-5">
-
                 <div class="card">
                     <div class="card-body">
                         <div class="row">

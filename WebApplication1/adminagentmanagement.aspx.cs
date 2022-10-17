@@ -60,7 +60,37 @@ namespace WebApplication1
         // Go Button Click
         protected void Button1_Click(object sender, EventArgs e)
         {
+            getAgentById();
+        }
 
+        void getAgentById()                                                 // This is function for 'FIND' button
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * from agent_master_tbl where agent_id='" + TextBox1.Text.Trim() + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);                                                // Data is filled in the table
+                if (dt.Rows.Count >= 1)                                     // If there is a string in 'datatable'
+                {
+                    TextBox2.Text = dt.Rows[0][1].ToString();                                 
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid Agent Id.Enter Agent Id again.');</script>");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + " ');</script>");
+            }
         }
         void deleteAgent()
         {
