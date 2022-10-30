@@ -117,27 +117,25 @@ namespace WebApplication1
         }
         void updateAgent()                                                  // This function updates the Existing Agent
         {
+            try
             {
-                try
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
                 {
-                    SqlConnection con = new SqlConnection(strcon);
-                    if (con.State == System.Data.ConnectionState.Closed)
-                    {
-                        con.Open();
-                    }
-                    SqlCommand cmd = new SqlCommand("UPDATE agent_master_tbl SET agent_name=@agent_name WHERE agent_id='"+TextBox1.Text.Trim()+"'", con);
-                    cmd.Parameters.AddWithValue("@agent_name", TextBox2.Text.Trim());
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("UPDATE agent_master_tbl SET agent_name=@agent_name WHERE agent_id='" + TextBox1.Text.Trim() + "'", con);
+                cmd.Parameters.AddWithValue("@agent_name", TextBox2.Text.Trim());
 
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    Response.Write("<script>alert('Agent Updated Successfully');</script>");
-                    clearForm();
-                    GridView1.DataBind();                                   // This function refreshes & update the table on Website
-                }
-                catch (Exception ex)
-                {
-                    Response.Write("<script>alert('" + ex.Message + " ');</script>");
-                }
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Response.Write("<script>alert('Agent Updated Successfully');</script>");
+                clearForm();
+                GridView1.DataBind();                                   // This function refreshes & update the table on Website
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + " ');</script>");
             }
         }
         // User defined functions
