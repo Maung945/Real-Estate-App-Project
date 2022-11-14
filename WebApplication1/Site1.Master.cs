@@ -24,10 +24,10 @@ namespace WebApplication1
                     LinkButton6.Visible = true;                                         // If no user logging in LinkButton7->'admin login' should be visible
 
                     LinkButton11.Visible = false;                                       // If no one logging in 'agents' should not be shown
-                    LinkButton12.Visible = false;                                       // THe same for 'appointments'
-                    LinkButton8.Visible = false;                                        // THe same for 'appointments management'
-                    LinkButton9.Visible = false;                                        // THe same for 'house management'
-                    LinkButton10.Visible = false;                                       // THe same for 'member management'
+                    LinkButton12.Visible = false;                                       // The same for 'appointments'
+                    LinkButton8.Visible = false;                                        // The same for 'appointments management'
+                    LinkButton9.Visible = false;                                        // The same for 'house management'
+                    LinkButton10.Visible = false;                                       // The same for 'member management'
                 }
 
                 else if (Session["role"].Equals("user"))                                // WHEN USER LOGGED IN
@@ -36,14 +36,14 @@ namespace WebApplication1
                     LinkButton2.Visible = false;                                        // The same for LinkedButton2->'sign up'
 
                     LinkButton3.Visible = true;                                         // If User logging in 'log out', will become visible
-                    LinkButton7.Visible = true;                                         // THe same for 'hello user'
+                    LinkButton7.Visible = true;                                         // The same for 'hello user'
                     LinkButton7.Text = "Hello  " + Session["username"].ToString();      // Output "Hello user_name"
 
                     LinkButton11.Visible = true;                                        // If User logs in in 'agents' should not be shown
-                    LinkButton12.Visible = false;                                       // THe same for 'appointments'
-                    LinkButton8.Visible = false;                                        // THe same for 'appointments management'
-                    LinkButton9.Visible = false;                                        // THe same for 'house management'
-                    LinkButton10.Visible = false;                                       // THe same for 'member management'
+                    LinkButton12.Visible = false;                                       // The same for 'appointments'
+                    LinkButton8.Visible = false;                                        // The same for 'appointments management'
+                    LinkButton9.Visible = false;                                        // The same for 'house management'
+                    LinkButton10.Visible = false;                                       // The same for 'member management'
                 }
                 else if (Session["role"].Equals("admin"))                                // WHEN ADMIN LOGGED IN
                 {
@@ -55,10 +55,10 @@ namespace WebApplication1
                     LinkButton7.Text = "Hello Admin ";                                  // Output "Hello user_name"
 
                     LinkButton11.Visible = true;                                        // If Admin logs in 'Agents' become visible
-                    LinkButton12.Visible = true;                                        // THe same for 'appointments'
-                    LinkButton8.Visible = true;                                         // THe same for 'appointments management'
-                    LinkButton9.Visible = true;                                         // THe same for 'house management'
-                    LinkButton10.Visible = true;                                        // THe same for 'member management'
+                    LinkButton12.Visible = true;                                        // The same for 'appointments'
+                    LinkButton8.Visible = true;                                         // The same for 'appointments management'
+                    LinkButton9.Visible = true;                                         // The same for 'house management'
+                    LinkButton10.Visible = true;                                        // The same for 'member management'
                 }
             }
             catch (Exception ex)
