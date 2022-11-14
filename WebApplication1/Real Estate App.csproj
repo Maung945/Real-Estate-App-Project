@@ -2133,6 +2133,7 @@
     <Content Include="fontawesome\svgs\solid\yin-yang.svg" />
     <Content Include="fontawesome\svgs\solid\z.svg" />
     <Content Include="homepage.aspx" />
+    <Content Include="house_images\House-img1.jpg" />
     <Content Include="images\admin.png" />
     <Content Include="images\appointment.png" />
     <Content Include="images\background.jpg" />

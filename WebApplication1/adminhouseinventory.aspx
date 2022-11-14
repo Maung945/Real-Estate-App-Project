@@ -1,6 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminhouseinventory.aspx.cs" Inherits="WebApplication1.adminhouseinventory" %>
 
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function (e) {
+                    $('#imgview').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
+
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div classs="container container-fluid">
         <div class="row">
@@ -18,7 +33,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="100px" src="images/house2.png" />
+                                    <img id="imgview" Height="150px" width="100px" src="images/house2.png" />
                                 </center>
                             </div>
                         </div>
@@ -31,7 +46,7 @@
 
                         <div class="row">
                             <div class="col">
-                                <asp:FileUpload class="form-control" ID="FileUpload1" runat="server" />
+                                <asp:FileUpload onchange="readURL(this);" class="form-control" ID="FileUpload1" runat="server" />
                             </div>
                         </div>
 
@@ -42,7 +57,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="House ID" ReadOnly="False"></asp:TextBox>
-                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click"><i class="fas fa-check-circle"></i></asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -158,12 +173,16 @@
                             <div class="col-md-4">
                                 <label>Offers</label>
                                 <div class="form-group">
+                                    <asp:TextBox CssClass="form-control mr-1" ID="TextBox16" runat="server" placeholder="Offers" ReadOnly="False" TextMode="Number"></asp:TextBox>
+                                    <%--
                                      <asp:DropDownList class="form-control" ID="DropDownList1" runat="server">
                                         <asp:ListItem Text="Offer 1" Value="Offer 1" />
                                         <asp:ListItem Text="Offer 2" Value="Offer 2" />
                                         <asp:ListItem Text="Offer 3" Value="Offer 3" />
                                         <asp:ListItem Text="Offer 4" Value="Offer 4" />
                                     </asp:DropDownList>
+                                    --%>
+
                                 </div>
                             </div>
 
@@ -184,10 +203,6 @@
                             </div>
                         </div>
 
-
-
-
-
                         <div class="row">
                             <div class="col-md-12">
                                 <label>House Description</label>
@@ -200,15 +215,15 @@
 
                         <div class="row">
                             <div class="col-4 mx-auto">
-                                <asp:Button ID="Button2" class="btn-btn-lg btn-block btn-success" runat="server" Text="Add" />
+                                <asp:Button ID="Button2" class="btn-btn-lg btn-block btn-success" runat="server" Text="Add" OnClick="Button2_Click" />
                             </div>
 
                             <div class="col-4 mx-auto">
-                                <asp:Button ID="Button1" class="btn-btn-lg btn-block btn-primary" runat="server" Text="Update" />
+                                <asp:Button ID="Button1" class="btn-btn-lg btn-block btn-primary" runat="server" Text="Update" OnClick="Button1_Click" />
                             </div>
 
                             <div class="col-4 mx-auto">
-                                <asp:Button ID="Button3" class="btn-btn-lg btn-block btn-danger" runat="server" Text="Delete" />
+                                <asp:Button ID="Button3" class="btn-btn-lg btn-block btn-danger" runat="server" Text="Delete" OnClick="Button3_Click" />
                             </div>
                         </div>
                     </div>
@@ -236,8 +251,27 @@
                         </div>
 
                         <div class="row">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT * FROM [house_master_tbl]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="house_id" DataSourceID="SqlDataSource1">
+                                    <Columns>
+                                        <asp:BoundField DataField="house_id" HeaderText="house_id" ReadOnly="True" SortExpression="house_id" />
+                                        <asp:BoundField DataField="house_address" HeaderText="house_address" SortExpression="house_address" />
+                                        <asp:BoundField DataField="property_type" HeaderText="property_type" SortExpression="property_type" />
+                                        <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
+                                        <asp:BoundField DataField="price_persqft" HeaderText="price_persqft" SortExpression="price_persqft" />
+                                        <asp:BoundField DataField="agent_id" HeaderText="agent_id" SortExpression="agent_id" />
+                                        <asp:BoundField DataField="appointment_id" HeaderText="appointment_id" SortExpression="appointment_id" />
+                                        <asp:BoundField DataField="year_built" HeaderText="year_built" SortExpression="year_built" />
+                                        <asp:BoundField DataField="rooms" HeaderText="rooms" SortExpression="rooms" />
+                                        <asp:BoundField DataField="bathrooms" HeaderText="bathrooms" SortExpression="bathrooms" />
+                                        <asp:BoundField DataField="offers" HeaderText="offers" SortExpression="offers" />
+                                        <asp:BoundField DataField="owner_name" HeaderText="owner_name" SortExpression="owner_name" />
+                                        <asp:BoundField DataField="on_appointment" HeaderText="on_appointment" SortExpression="on_appointment" />
+                                        <asp:BoundField DataField="house_description" HeaderText="house_description" SortExpression="house_description" />
+                                        <asp:BoundField DataField="house_img_link" HeaderText="house_img_link" SortExpression="house_img_link" />
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div>
 
@@ -247,5 +281,4 @@
 
         </div>
     </div>
-
 </asp:Content>

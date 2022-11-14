@@ -171,20 +171,25 @@
                         </div>
 
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT * FROM [member_master_tbl]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT * FROM [house_master_tbl]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="member_id" DataSourceID="SqlDataSource1">
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="house_id" DataSourceID="SqlDataSource1">
                                     <Columns>
-                                        <asp:BoundField DataField="member_id" HeaderText="ID" ReadOnly="True" SortExpression="member_id" />
-                                        <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name" />
-                                        <asp:BoundField DataField="account_status" HeaderText="Account Status" SortExpression="account_status" />
-                                        <asp:BoundField DataField="member_since" HeaderText="Member Since" SortExpression="member_since" />
-                                        <asp:BoundField DataField="contact_no" HeaderText="Phone No:" SortExpression="contact_no" />
-                                        <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />
-                                        <asp:BoundField DataField="state" HeaderText="State" SortExpression="state" />
-                                        <asp:BoundField DataField="city" HeaderText="City" SortExpression="city" />
-                                        <asp:BoundField DataField="zipcode" HeaderText="Zip Code" SortExpression="zipcode" />
-                                        <asp:BoundField DataField="password" HeaderText="Password" SortExpression="password" />
+                                        <asp:BoundField DataField="house_id" HeaderText="house_id" ReadOnly="True" SortExpression="house_id" />
+                                        <asp:BoundField DataField="house_address" HeaderText="house_address" SortExpression="house_address" />
+                                        <asp:BoundField DataField="property_type" HeaderText="property_type" SortExpression="property_type" />
+                                        <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
+                                        <asp:BoundField DataField="price_persqft" HeaderText="price_persqft" SortExpression="price_persqft" />
+                                        <asp:BoundField DataField="agent_id" HeaderText="agent_id" SortExpression="agent_id" />
+                                        <asp:BoundField DataField="appointment_id" HeaderText="appointment_id" SortExpression="appointment_id" />
+                                        <asp:BoundField DataField="year_built" HeaderText="year_built" SortExpression="year_built" />
+                                        <asp:BoundField DataField="rooms" HeaderText="rooms" SortExpression="rooms" />
+                                        <asp:BoundField DataField="bathrooms" HeaderText="bathrooms" SortExpression="bathrooms" />
+                                        <asp:BoundField DataField="offers" HeaderText="offers" SortExpression="offers" />
+                                        <asp:BoundField DataField="owner_name" HeaderText="owner_name" SortExpression="owner_name" />
+                                        <asp:BoundField DataField="on_appointment" HeaderText="on_appointment" SortExpression="on_appointment" />
+                                        <asp:BoundField DataField="house_description" HeaderText="house_description" SortExpression="house_description" />
+                                        <asp:BoundField DataField="house_img_link" HeaderText="house_img_link" SortExpression="house_img_link" />
                                     </Columns>
                                 </asp:GridView>
                             </div>
