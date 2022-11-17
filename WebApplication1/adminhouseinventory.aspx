@@ -2,6 +2,10 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
+        $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+        });
+
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -57,7 +61,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="House ID" ReadOnly="False"></asp:TextBox>
-                                        <asp:LinkButton class="btn btn-primary" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                                        <asp:Button class="btn btn-primary" ID="Button4" runat="server" Text="Go" OnClick="Button4_Click" />
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +259,10 @@
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="house_id" DataSourceID="SqlDataSource1">
                                     <Columns>
-                                        <asp:BoundField DataField="house_id" HeaderText="house_id" ReadOnly="True" SortExpression="house_id" />
+                                        <asp:BoundField DataField="house_id" HeaderText="ID" ReadOnly="True" SortExpression="house_id" >
+                                        <ItemStyle Font-Bold="True" />
+                                        </asp:BoundField>
+                                        <%--
                                         <asp:BoundField DataField="house_address" HeaderText="house_address" SortExpression="house_address" />
                                         <asp:BoundField DataField="property_type" HeaderText="property_type" SortExpression="property_type" />
                                         <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
@@ -270,6 +277,63 @@
                                         <asp:BoundField DataField="on_appointment" HeaderText="on_appointment" SortExpression="on_appointment" />
                                         <asp:BoundField DataField="house_description" HeaderText="house_description" SortExpression="house_description" />
                                         <asp:BoundField DataField="house_img_link" HeaderText="house_img_link" SortExpression="house_img_link" />
+                                        --%>
+
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-lg-10">
+                                                            <div class="row">
+                                                                <div class="col-12">
+                                                                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("house_address") %>' Font-Strikeout="False" Font-Bold="True" Font-Size="X-Large"></asp:Label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    Price- <asp:Label ID="Label2" runat="server" Font-Bold="True" Text='<%# Eval("price") %>'></asp:Label>
+                                                                    &nbsp;| Price.SqFt-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("price_persqft") %>'></asp:Label>
+                                                                    &nbsp;| Property Type-<asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("property_type") %>'></asp:Label>
+                                                                    &nbsp;</div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    Year Built- <asp:Label ID="Label5" runat="server" Font-Bold="True" Text='<%# Eval("year_built") %>'></asp:Label>
+                                                                    &nbsp;| Rooms- <asp:Label ID="Label6" runat="server" Font-Bold="True" Text='<%# Eval("rooms") %>'></asp:Label>
+                                                                    &nbsp;| Bathrooms- <asp:Label ID="Label7" runat="server" Font-Bold="True" Text='<%# Eval("bathrooms") %>'></asp:Label>
+                                                                    &nbsp;| Offers- <asp:Label ID="Label8" runat="server" Font-Bold="True" Text='<%# Eval("offers") %>'></asp:Label>
+                                                                    &nbsp;| Appointments- <asp:Label ID="Label9" runat="server" Font-Bold="True" Text='<%# Eval("on_appointment") %>'></asp:Label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    AgentID- <asp:Label ID="Label10" runat="server" Font-Bold="True" Text='<%# Eval("agent_id") %>'></asp:Label>
+                                                                    &nbsp;| AppointmentID- <asp:Label ID="Label11" runat="server" Font-Bold="True" Text='<%# Eval("appointment_id") %>'></asp:Label>
+                                                                    &nbsp;| Owner Name- <asp:Label ID="Label12" runat="server" Font-Bold="True" Text='<%# Eval("owner_name") %>'></asp:Label>
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-12">
+
+                                                                    Description- <asp:Label ID="Label13" runat="server" Font-Bold="True" Text='<%# Eval("house_description") %>'></asp:Label>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-2">
+                                                            <asp:Image CssClass="img-fluid" ID="Image1" runat="server" ImageUrl='<%# Eval("house_img_link") %>' />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+
                                     </Columns>
                                 </asp:GridView>
                             </div>
@@ -282,3 +346,4 @@
         </div>
     </div>
 </asp:Content>
+
