@@ -176,15 +176,7 @@
                             <div class="col-md-4">
                                 <label>Offers</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control mr-1" ID="TextBox16" runat="server" placeholder="Offers" ReadOnly="False" TextMode="Number"></asp:TextBox>
-                                    <%--
-                                     <asp:DropDownList class="form-control" ID="DropDownList1" runat="server">
-                                        <asp:ListItem Text="Offer 1" Value="Offer 1" />
-                                        <asp:ListItem Text="Offer 2" Value="Offer 2" />
-                                        <asp:ListItem Text="Offer 3" Value="Offer 3" />
-                                        <asp:ListItem Text="Offer 4" Value="Offer 4" />
-                                    </asp:DropDownList>
-                                    --%>
+                                    <asp:TextBox CssClass="form-control mr-1" ID="TextBox16" runat="server" placeholder="Offers" ReadOnly="False" TextMode="Number"></asp:TextBox>                             
                                 </div>
                             </div>
 
@@ -260,22 +252,6 @@
                                         <asp:BoundField DataField="house_id" HeaderText="ID" ReadOnly="True" SortExpression="house_id">
                                             <ItemStyle Font-Bold="True" />
                                         </asp:BoundField>
-                                        <%--
-                                        <asp:BoundField DataField="house_address" HeaderText="house_address" SortExpression="house_address" />
-                                        <asp:BoundField DataField="property_type" HeaderText="property_type" SortExpression="property_type" />
-                                        <asp:BoundField DataField="price" HeaderText="price" SortExpression="price" />
-                                        <asp:BoundField DataField="price_persqft" HeaderText="price_persqft" SortExpression="price_persqft" />
-                                        <asp:BoundField DataField="agent_id" HeaderText="agent_id" SortExpression="agent_id" />
-                                        <asp:BoundField DataField="appointment_id" HeaderText="appointment_id" SortExpression="appointment_id" />
-                                        <asp:BoundField DataField="year_built" HeaderText="year_built" SortExpression="year_built" />
-                                        <asp:BoundField DataField="rooms" HeaderText="rooms" SortExpression="rooms" />
-                                        <asp:BoundField DataField="bathrooms" HeaderText="bathrooms" SortExpression="bathrooms" />
-                                        <asp:BoundField DataField="offers" HeaderText="offers" SortExpression="offers" />
-                                        <asp:BoundField DataField="owner_name" HeaderText="owner_name" SortExpression="owner_name" />
-                                        <asp:BoundField DataField="on_appointment" HeaderText="on_appointment" SortExpression="on_appointment" />
-                                        <asp:BoundField DataField="house_description" HeaderText="house_description" SortExpression="house_description" />
-                                        <asp:BoundField DataField="house_img_link" HeaderText="house_img_link" SortExpression="house_img_link" />
-                                        --%>
 
                                         <asp:TemplateField>
                                             <ItemTemplate>

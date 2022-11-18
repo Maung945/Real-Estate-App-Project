@@ -100,7 +100,7 @@ namespace WebApplication1
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("adminhouseinventory.aspx");
+            Response.Redirect("viewhouses.aspx");
         }
 
         protected void LinkButton1_Click(object sender, EventArgs e)
