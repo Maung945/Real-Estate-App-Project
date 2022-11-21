@@ -97,9 +97,9 @@
                             </div>
 
                             <div class="col-md-4">
-                                <label>Price/Sqft</label>
+                                <label>Sq.ft</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox11" runat="server" placeholder="Price/Sq.ft" ReadOnly="False"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox11" runat="server" placeholder="Sq.ft" ReadOnly="False"></asp:TextBox>
                                 </div>
 
                                 <label>Appointment ID</label>
@@ -188,10 +188,10 @@
                             </div>
 
                             <div class="col-md-4">
-                                <label>Appointments</label>
+                                <label>Units</label>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <asp:TextBox CssClass="form-control mr-1" ID="TextBox4" runat="server" placeholder="Appointment" ReadOnly="False" TextMode="Number"></asp:TextBox>
+                                        <asp:TextBox CssClass="form-control mr-1" ID="TextBox4" runat="server" placeholder="Units" ReadOnly="False" TextMode="Number"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -267,7 +267,7 @@
                                                                 <div class="col-12">
                                                                     Price-
                                                                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Text='<%# Eval("price") %>'></asp:Label>
-                                                                    &nbsp;| Price.SqFt-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("price_persqft") %>'></asp:Label>
+                                                                    &nbsp;| Sq.Ft-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("price_persqft") %>'></asp:Label>
                                                                     &nbsp;| Property Type-<asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("property_type") %>'></asp:Label>
                                                                     &nbsp;
                                                                 </div>
@@ -282,7 +282,7 @@
                                                                     <asp:Label ID="Label7" runat="server" Font-Bold="True" Text='<%# Eval("bathrooms") %>'></asp:Label>
                                                                     &nbsp;| Offers-
                                                                     <asp:Label ID="Label8" runat="server" Font-Bold="True" Text='<%# Eval("offers") %>'></asp:Label>
-                                                                    &nbsp;| Appointments-
+                                                                    &nbsp;| Units-
                                                                     <asp:Label ID="Label9" runat="server" Font-Bold="True" Text='<%# Eval("on_appointment") %>'></asp:Label>
 
                                                                 </div>

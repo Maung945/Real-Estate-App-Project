@@ -51,7 +51,7 @@
                                                                     <div class="col-12">
                                                                         Price-
                                                                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Text='<%# Eval("price") %>'></asp:Label>
-                                                                        &nbsp;| Price.SqFt-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("price_persqft") %>'></asp:Label>
+                                                                        &nbsp;| SqFt-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("price_persqft") %>'></asp:Label>
                                                                         &nbsp;| Property Type-<asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("property_type") %>'></asp:Label>
                                                                         &nbsp;
                                                                     </div>
@@ -66,7 +66,7 @@
                                                                     <asp:Label ID="Label7" runat="server" Font-Bold="True" Text='<%# Eval("bathrooms") %>'></asp:Label>
                                                                         &nbsp;| Offers-
                                                                     <asp:Label ID="Label8" runat="server" Font-Bold="True" Text='<%# Eval("offers") %>'></asp:Label>
-                                                                        &nbsp;| Appointments-
+                                                                        &nbsp;| Units-
                                                                     <asp:Label ID="Label9" runat="server" Font-Bold="True" Text='<%# Eval("on_appointment") %>'></asp:Label>
 
                                                                     </div>
