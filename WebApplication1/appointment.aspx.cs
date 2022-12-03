@@ -16,135 +16,61 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GridView1.DataBind();
+            
         }
 
-        
-        // Add Button
+        // Member ID Button
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            getMemberNames();
+        }
+        //House ID Button
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+            if (checkHouseExists())
+            {
+                getHouseByID();
+            }
+            else
+            {
+                Response.Write("<script>alert('House Doesn't Exist!');</script>");
+            }
+            //getHouseByID();
+        }
+
+        // CREATE button
         protected void Button2_Click(object sender, EventArgs e)
         {
-            if(checkAppointmentExists())
+            if (checkAppointmentExists())
             {
-                Response.Write("<script>alert('Appointment ID already exists. Please choose different ID');</script");
+                Response.Write("<script>alert('Appointment Exists OR Not Available!');</script>");
+                clearForm();
             }
             else
             {
-                addNewAppointment();
+                createAppointment();
             }
+
         }
 
-        // Update Button
-        protected void Button3_Click(object sender, EventArgs e)
-        {
-            if(checkAppointmentExists())
-            {
-                updateAppointment();                                              // If appointment exists, updateAppointment()
-            }
-            else
-            {
-                Response.Write("<script>alert('Appointment ID already exists. Please choose different ID');</script");
-            }
-        }
-
-        // Delete Button
+        // CANCEL button
         protected void Button4_Click(object sender, EventArgs e)
         {
             if (checkAppointmentExists())
             {
-                deleteAppointment();
+                cancelAppointment();
             }
             else
             {
-                Response.Write("<script>alert('Appointment does not exist. Re-enter Appointment ID');</script>");
-            }
-        }
-
-        // Find Button
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            getAppointmentById();
-        }
-
-        void getAppointmentById()
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == System.Data.ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-
-                SqlCommand cmd = new SqlCommand("SELECT * from appointment_master_tbl where appointment_id='" + TextBox1.Text.Trim() + "';", con);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);                                                // Data is filled in the table
-                if (dt.Rows.Count >= 1)                                     // If there is a string in 'datatable'
-                {
-                    TextBox2.Text = dt.Rows[0][1].ToString();
-                }
-                else
-                {
-                    Response.Write("<script>alert('Invalid Appointment Id.Enter Appointment Id again.');</script>");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + " ');</script>");
-            }
-        }
-
-        void deleteAppointment()
-        {
-            try
-            {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == System.Data.ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-
-                SqlCommand cmd = new SqlCommand("DELETE FROM appointment_master_tbl WHERE appointment_id='" + TextBox1.Text.Trim() + "'", con);
-
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Write("<script>alert('Appointment Deleted Successfully');</script>");
+                Response.Write("<script>alert('Appointment Doesn't Exist!');</script>");
                 clearForm();
-                GridView1.DataBind();                                              // This function refreshes & update the table on Website
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + " ');</script>");
             }
         }
 
-        void updateAppointment()                                                   // This function updates existing Appointment in database
+        // User defined functions
+        void createAppointment()
         {
-            try
-            {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == System.Data.ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-                SqlCommand cmd = new SqlCommand("UPDATE appointment_master_tbl SET appointment_name=@appointment_name WHERE appointment_id='" + TextBox1.Text.Trim() + "'", con);
-                cmd.Parameters.AddWithValue("@appointment_name", TextBox2.Text.Trim());
-
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Write("<script>alert('Appointment Updated Successfully');</script>");
-                clearForm();
-                GridView1.DataBind();                                              // This function refreshes & update the table on Website
-            }
-            catch (Exception ex)
-            {
-                Response.Write("<script>alert('" + ex.Message + " ');</script>");
-            }
-        }
-
-        void addNewAppointment()                                                  // This function adds New Appointment to database
-        {
+            if(checkHouseExists())
             {
                 try
                 {
@@ -153,23 +79,55 @@ namespace WebApplication1
                     {
                         con.Open();
                     }
-                    SqlCommand cmd = new SqlCommand("INSERT INTO appointment_master_tbl(appointment_id,appointment_name) values(@appointment_id,@appointment_name)", con);
-                    cmd.Parameters.AddWithValue("@appointment_id", TextBox1.Text.Trim());
-                    cmd.Parameters.AddWithValue("@appointment_name", TextBox2.Text.Trim());
+                    SqlCommand cmd = new SqlCommand("INSERT INTO appointment_management_master_tbl(member_id,member_name,house_id,house_address,agent_name,owner_name,appointment_date,appointment_time) values(@member_id,@member_name,@house_id,@house_address,@agent_name,@owner_name,@appointment_date,@appointment_time)", con);
+                    cmd.Parameters.AddWithValue("@member_id", TextBox1.Text.Trim());
+                    cmd.Parameters.AddWithValue("@member_name", TextBox2.Text.Trim());
+                    cmd.Parameters.AddWithValue("@house_id", TextBox8.Text.Trim());
+                    cmd.Parameters.AddWithValue("@house_address", TextBox7.Text.Trim());
+                    cmd.Parameters.AddWithValue("@agent_name", TextBox4.Text.Trim());
+                    cmd.Parameters.AddWithValue("@owner_name", TextBox3.Text.Trim());
+                    cmd.Parameters.AddWithValue("@appointment_date", TextBox5.Text.Trim());
+                    cmd.Parameters.AddWithValue("@appointment_time", TextBox6.Text.Trim());
 
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    Response.Write("<script>alert('Appointment Added Successfully');</script>");
+                    Response.Write("<script>alert('Appointment Created Successfully');</script>");
                     clearForm();
-                    GridView1.DataBind();
                 }
                 catch (Exception ex)
                 {
                     Response.Write("<script>alert('" + ex.Message + " ');</script>");
                 }
             }
+            else
+            {
+                Response.Write("<script>alert('Invlid House ID.');</script>");
+            }
         }
-        bool checkAppointmentExists()
+
+        void cancelAppointment()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("DELETE FROM appointment_management_master_tbl WHERE house_id='" + TextBox8.Text.Trim() + "' AND member_id= '" + TextBox1.Text.Trim() + "'", con);
+
+                cmd.ExecuteNonQuery();
+                con.Close();
+                Response.Write("<script>alert('Appointment Cancelled Successfully!');</script>");
+                clearForm();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + " ');</script>");
+            }
+        }
+
+        bool checkHouseExists()                                            // This function checks if user exists
         {
             try
             {
@@ -179,7 +137,8 @@ namespace WebApplication1
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * from appointment_master_tbl where appointment_id='" + TextBox1.Text.Trim() + "';", con);
+                SqlCommand cmd = new SqlCommand("SELECT * from house_master_tbl where house_id='" + TextBox8.Text.Trim() +
+                    "'OR house_address='" + TextBox7.Text.Trim() + "';", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);                                                // Data is filled in the table
@@ -200,11 +159,114 @@ namespace WebApplication1
             }
         }
 
+        bool checkAppointmentExists()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("SELECT * FROM appointment_management_master_tbl where house_id='" + TextBox8.Text.Trim() + "' AND member_id= '" + TextBox1.Text.Trim() + "'", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count >= 1)                                     // If there is a string in 'datatable'
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        void getMemberNames()                                   // Get member_name by Member ID 
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("SELECT full_name FROM member_master_tbl where member_id='" + TextBox1.Text.Trim() + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count >= 1)                                     // If there is a string in 'datatable'
+                {
+                    TextBox2.Text = dt.Rows[0]["full_name"].ToString();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid Member Id.Enter Member Id again.');</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
+
+        void getHouseByID()                                   // Get house_address by House ID 
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlCommand cmd = new SqlCommand("SELECT * FROM house_master_tbl where house_id='" + TextBox8.Text.Trim() + "';", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        TextBox7.Text = dr.GetValue(1).ToString();          // house address
+                        TextBox4.Text = dr.GetValue(6).ToString();         // Agent_name
+                        TextBox3.Text = dr.GetValue(11).ToString();        // Owner's name
+
+                    }
+                }
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                if (dt.Rows.Count >= 1)                                     // If there is a string in 'datatable'
+                {
+                    TextBox7.Text = dt.Rows[0]["house_address"].ToString().Trim();
+                    TextBox4.Text = dt.Rows[0]["agent_name"].ToString().Trim();
+                    TextBox3.Text = dt.Rows[0]["owner_name"].ToString().Trim();
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid House Id.Enter House Id again.');</script>");
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+        }
         void clearForm()
         {
-            TextBox1.Text = "";
             TextBox2.Text = "";
+            TextBox1.Text = "";
+            TextBox7.Text = "";
+            TextBox8.Text = "";
+            TextBox4.Text = "";
+            TextBox3.Text = "";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
         }
-        
+
     }
 }

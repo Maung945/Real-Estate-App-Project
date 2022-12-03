@@ -15,9 +15,8 @@ namespace WebApplication1
         string strcon = ConfigurationManager.ConnectionStrings["con"].ConnectionString; // Connection String
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GridView1.DataBind();
         }
-
         // Member ID Button
         protected void Button1_Click(object sender, EventArgs e)
         {
@@ -34,7 +33,8 @@ namespace WebApplication1
         {
             if (checkAppointmentExists())
             {
-                Response.Write("<script>alert('Appointment Clash!');</script>");
+                Response.Write("<script>alert('Appointment Exists Or Not Available!');</script>");
+                clearForm();
             }
             else
             {
@@ -59,6 +59,7 @@ namespace WebApplication1
         // User defined functions
         void createAppointment()
         {
+            if (checkHouseExists())
             {
                 try
                 {
@@ -80,13 +81,17 @@ namespace WebApplication1
                     cmd.ExecuteNonQuery();
                     con.Close();
                     Response.Write("<script>alert('Appointment Created Successfully');</script>");
-
+                    clearForm();
                     GridView1.DataBind();
                 }
                 catch (Exception ex)
                 {
                     Response.Write("<script>alert('" + ex.Message + " ');</script>");
                 }
+            }
+            else
+            {
+                Response.Write("<script>alert('Invlid House ID.');</script>");
             }
         }
 
@@ -104,6 +109,7 @@ namespace WebApplication1
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Response.Write("<script>alert('Appointment Cancelled Successfully!');</script>");
+                clearForm();
                 GridView1.DataBind();                                       // This function refreshes & update the table on Website
             }
             catch (Exception ex)
@@ -111,7 +117,37 @@ namespace WebApplication1
                 Response.Write("<script>alert('" + ex.Message + " ');</script>");
             }
         }
+        bool checkHouseExists()                                            // This function checks if user exists
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    con.Open();
+                }
 
+                SqlCommand cmd = new SqlCommand("SELECT * from house_master_tbl where house_id='" + TextBox8.Text.Trim() +
+                    "'OR house_address='" + TextBox7.Text.Trim() + "';", con);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);                                                // Data is filled in the table
+                if (dt.Rows.Count >= 1)                                     // If there is a string in 'datatable'
+                {
+                    return true;                                            // True
+                }
+                else
+                {
+                    return false;                                           // Otherwise, 'False'
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + " ');</script>");
+                return false;
+            }
+        }
         bool checkAppointmentExists()
         {
             try
@@ -139,6 +175,7 @@ namespace WebApplication1
                 return false;
             }
         }
+
         void getMemberNames()                                   // Get member_name by Member ID 
         {
             try
@@ -195,6 +232,8 @@ namespace WebApplication1
                 if (dt.Rows.Count >= 1)                                     // If there is a string in 'datatable'
                 {
                     TextBox7.Text = dt.Rows[0]["house_address"].ToString();
+                    TextBox4.Text = dt.Rows[0]["agent_name"].ToString().Trim();
+                    TextBox3.Text = dt.Rows[0]["owner_name"].ToString().Trim();
                 }
                 else
                 {
@@ -206,6 +245,18 @@ namespace WebApplication1
             {
 
             }
+        }
+
+        void clearForm()
+        {
+            TextBox2.Text = "";
+            TextBox1.Text = "";
+            TextBox7.Text = "";
+            TextBox8.Text = "";
+            TextBox4.Text = "";
+            TextBox3.Text = "";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
         }
     }
 }
