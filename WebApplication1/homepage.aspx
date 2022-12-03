@@ -15,7 +15,6 @@
                 <div class="col-12">
                     <center>
                         <h2>Real Estate App Features</h2>
-                        <p><b>Click below to Access Features</b></p>
                     </center>
                 </div>
             </div>
@@ -28,6 +27,7 @@
                         <p class="text-justify">
                             Sell Your Home With An Expert Who Knows Your Neighborhood And Can Get You The Best Price.
                      Real Estate App Agents Sell Homes 5 Days Faster On Average Than Agents From Other Brokerages. Reinventing Real Estate.
+                       
                         </p>
 
                     </center>
@@ -40,6 +40,7 @@
                         <p class="text-justify">
                             Our highly qualified will guide you and teach you to get the best out of your home. If you are 
                         searching for a home, our real esteate agents are available 24/7 around the clock. Click below to make an appointment today
+                       
                         </p>
                     </center>
                 </div>
@@ -51,6 +52,7 @@
                         <p class="text-justify">
                             Find your place with an immersive photo experience and the most listings, 
                         including things you won’t find anywhere else.
+                       
                         </p>
                     </center>
                 </div>
@@ -59,6 +61,7 @@
         </div>
         </div>
 
+   
     </section>
 
     <section>
@@ -72,7 +75,6 @@
                 <div class="col-12">
                     <center>
                         <h2>Meet Our Team & Become A Member</h2>
-                        <p><b>Click below to Access Features</b></p>
                     </center>
                 </div>
             </div>
@@ -85,6 +87,7 @@
                         <p class="text-justify">
                             Sign Up today and become a member to get latest updates and enjoy the inside deals. 
                         Members enjoy 30% faster sell or buy deals.
+                       
                         </p>
                     </center>
                 </div>
@@ -96,6 +99,7 @@
                         <p class="text-justify">
                             Stay up-to-date with the latest news on interest and loan qualification. We update our news every hours
                         so that our coustomers be informed.
+                       
                         </p>
                     </center>
                 </div>
@@ -107,14 +111,19 @@
                         <p class="text-justify">
                             Check out to see the mortgae payment an other fees. Raach out to one of our agent to see
                         if you are quilified
+                       
                         </p>
                     </center>
                 </div>
 
             </div>
+            <center>
+                <p><b>Click below to Access Features</b></p>
+            </center>
         </div>
         </div>
 
+   
     </section>
 
 </asp:Content>

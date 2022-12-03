@@ -25,7 +25,7 @@ namespace WebApplication1
 
                     LinkButton11.Visible = false;                                       // If no one logging in 'agents' should not be shown
                     LinkButton12.Visible = false;                                       // The same for 'appointments'
-                    LinkButton8.Visible = true;                                        // The same for 'appointments management'
+                    LinkButton8.Visible = false;                                        // The same for 'appointments management'
                     LinkButton9.Visible = false;                                        // The same for 'house management'
                     LinkButton10.Visible = false;                                       // The same for 'member management'
                 }
