@@ -16,7 +16,7 @@ namespace WebApplication1
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         // Member ID Button
@@ -75,7 +75,7 @@ namespace WebApplication1
         // User defined functions
         void createAppointment()
         {
-            if(checkHouseExists())
+            if (checkHouseExists())
             {
                 try
                 {
