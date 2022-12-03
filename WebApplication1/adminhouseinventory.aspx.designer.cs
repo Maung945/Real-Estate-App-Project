@@ -69,6 +69,15 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.DropDownList DropDownList2;
 
         /// <summary>
+        /// Button5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button5;
+
+        /// <summary>
         /// TextBox11 control.
         /// </summary>
         /// <remarks>
@@ -78,13 +87,13 @@ namespace WebApplication1
         protected global::System.Web.UI.WebControls.TextBox TextBox11;
 
         /// <summary>
-        /// DropDownList3 control.
+        /// TextBox19 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList3;
+        protected global::System.Web.UI.WebControls.TextBox TextBox19;
 
         /// <summary>
         /// ListBox1 control.

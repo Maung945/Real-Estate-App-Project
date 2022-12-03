@@ -31,7 +31,8 @@
                             <div class="row">
                                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT * FROM [house_master_tbl]"></asp:SqlDataSource>
                                 <div class="col">
-                                    <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="house_id" DataSourceID="SqlDataSource1">
+
+                                    <asp:GridView class="table table-striped table-bordered" ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="house_id" DataSourceID="SqlDataSource1">
                                         <Columns>
                                             <asp:BoundField DataField="house_id" HeaderText="ID" ReadOnly="True" SortExpression="house_id">
                                                 <ItemStyle Font-Bold="True" />
@@ -51,7 +52,7 @@
                                                                     <div class="col-12">
                                                                         Price-
                                                                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Text='<%# Eval("price") %>'></asp:Label>
-                                                                        &nbsp;| SqFt-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("price_persqft") %>'></asp:Label>
+                                                                        &nbsp;| Sq.Ft-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("price_persqft") %>'></asp:Label>
                                                                         &nbsp;| Property Type-<asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("property_type") %>'></asp:Label>
                                                                         &nbsp;
                                                                     </div>
@@ -73,9 +74,7 @@
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-12">
-                                                                        AgentID-
-                                                                    <asp:Label ID="Label10" runat="server" Font-Bold="True" Text='<%# Eval("agent_id") %>'></asp:Label>
-                                                                        &nbsp;| AppointmentID-
+                                                                        Agent Name-
                                                                     <asp:Label ID="Label11" runat="server" Font-Bold="True" Text='<%# Eval("appointment_id") %>'></asp:Label>
                                                                         &nbsp;| Owner Name-
                                                                     <asp:Label ID="Label12" runat="server" Font-Bold="True" Text='<%# Eval("owner_name") %>'></asp:Label>

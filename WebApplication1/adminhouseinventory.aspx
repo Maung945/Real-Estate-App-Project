@@ -93,6 +93,7 @@
                                         <asp:ListItem Text="Agent 3" Value="Agent 3" />
                                         <asp:ListItem Text="Agent 4" Value="Agent 4" />
                                     </asp:DropDownList>
+                                    <asp:Button class="btn btn-primary" ID="Button5" runat="server" Text="Go" OnClick="Button5_Click" />
                                 </div>
                             </div>
 
@@ -102,14 +103,10 @@
                                     <asp:TextBox CssClass="form-control" ID="TextBox11" runat="server" placeholder="Sq.ft" ReadOnly="False"></asp:TextBox>
                                 </div>
 
-                                <label>Appointment ID</label>
+                                <label>Agent Name</label>
                                 <div class="form-group">
-                                    <asp:DropDownList class="form-control" ID="DropDownList3" runat="server">
-                                        <asp:ListItem Text="Appointment 1" Value="Appointment 1" />
-                                        <asp:ListItem Text="Appointment 2" Value="Appointment 2" />
-                                        <asp:ListItem Text="Appointment 3" Value="Appointment 3" />
-                                        <asp:ListItem Text="Appointment 4" Value="Appointment 4" />
-                                    </asp:DropDownList>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox19" runat="server" placeholder="Agent Name" ReadOnly="True"></asp:TextBox>
+
                                 </div>
                             </div>
 
@@ -289,9 +286,8 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-12">
-                                                                    AgentID-
-                                                                    <asp:Label ID="Label10" runat="server" Font-Bold="True" Text='<%# Eval("agent_id") %>'></asp:Label>
-                                                                    &nbsp;| AppointmentID-
+                                                                    
+                                                                    Agent Name-
                                                                     <asp:Label ID="Label11" runat="server" Font-Bold="True" Text='<%# Eval("appointment_id") %>'></asp:Label>
                                                                     &nbsp;| Owner Name-
                                                                     <asp:Label ID="Label12" runat="server" Font-Bold="True" Text='<%# Eval("owner_name") %>'></asp:Label>

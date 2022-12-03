@@ -24,6 +24,10 @@ namespace WebApplication1
             GridView1.DataBind();
         }
         // Go Button Click
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            getAgentByID();
+        }
         protected void Button4_Click(object sender, EventArgs e)
         {
             getHouseByID();
@@ -120,7 +124,7 @@ namespace WebApplication1
                     cmd.Parameters.AddWithValue("@price", TextBox10.Text.Trim());
                     cmd.Parameters.AddWithValue("@price_persqft", TextBox11.Text.Trim());
                     cmd.Parameters.AddWithValue("@agent_id", DropDownList2.SelectedItem.Value);
-                    cmd.Parameters.AddWithValue("@appointment_id", DropDownList3.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@appointment_id", TextBox19.Text.Trim());
                     cmd.Parameters.AddWithValue("@year_built", TextBox13.Text.Trim());
                     cmd.Parameters.AddWithValue("@rooms", TextBox14.Text.Trim());
                     cmd.Parameters.AddWithValue("@bathrooms", TextBox15.Text.Trim());
@@ -143,6 +147,39 @@ namespace WebApplication1
             else
             {
                 Response.Write("<script>alert('Invlid Book ID.');</script>");
+            }
+        }
+
+        void getAgentByID()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(strcon);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+
+                SqlCommand cmd = new SqlCommand("SELECT * FROM agent_master_tbl WHERE agent_id='" + DropDownList2.Text.Trim() + "'", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        DropDownList2.Text = dr.GetValue(0).ToString();          // agent_ID
+                        TextBox19.Text = dr.GetValue(1).ToString();              // Agent Name
+
+                    }
+                }
+                else
+                {
+                    Response.Write("<script>alert('Invalid Credentials');</script>");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
             }
         }
         void getHouseByID()
@@ -170,9 +207,9 @@ namespace WebApplication1
                     TextBox3.Text = dt.Rows[0]["owner_name"].ToString();
                     TextBox4.Text = dt.Rows[0]["on_appointment"].ToString().Trim();
                     TextBox7.Text = dt.Rows[0]["house_description"].ToString();
-
+                    TextBox19.Text = dt.Rows[0]["appointment_id"].ToString().Trim();
                     DropDownList2.SelectedValue = dt.Rows[0]["agent_id"].ToString().Trim();             //DropDown Lists
-                    DropDownList3.SelectedValue = dt.Rows[0]["appointment_id"].ToString().Trim();
+                    //DropDownList3.SelectedValue = dt.Rows[0]["appointment_id"].ToString().Trim();
 
                     ListBox1.ClearSelection();
                     string[] propertyType = dt.Rows[0]["property_type"].ToString().Trim().Split(',');
@@ -215,14 +252,17 @@ namespace WebApplication1
                 DropDownList2.DataSource = dt;
                 DropDownList2.DataValueField = "agent_id";
                 DropDownList2.DataBind();
-
+                /*
                 cmd = new SqlCommand("SELECT RTRIM(LTRIM(appointment_id)) as appointment_id FROM appointment_master_tbl;", con); // Appointment ID
                 da = new SqlDataAdapter(cmd);
                 dt = new DataTable();
                 da.Fill(dt);
+                
+                
                 DropDownList3.DataSource = dt;
                 DropDownList3.DataValueField = "appointment_id";
                 DropDownList3.DataBind();
+                */
             }
             catch (Exception ex)
             {
@@ -290,7 +330,9 @@ namespace WebApplication1
                 cmd.Parameters.AddWithValue("@price", TextBox10.Text.Trim());
                 cmd.Parameters.AddWithValue("@price_persqft", TextBox11.Text.Trim());
                 cmd.Parameters.AddWithValue("@agent_id", DropDownList2.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@appointment_id", DropDownList3.SelectedItem.Value);
+                //cmd.Parameters.AddWithValue("@appointment_id", DropDownList3.SelectedItem.Value);
+                cmd.Parameters.AddWithValue("@appointment_id", TextBox19.Text.Trim());
+                
                 cmd.Parameters.AddWithValue("@year_built", TextBox13.Text.Trim());
                 cmd.Parameters.AddWithValue("@rooms", TextBox14.Text.Trim());
                 cmd.Parameters.AddWithValue("@bathrooms", TextBox15.Text.Trim());
@@ -311,6 +353,6 @@ namespace WebApplication1
             }
         }
 
-
+        
     }
 }
