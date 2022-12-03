@@ -20,6 +20,12 @@ namespace WebApplication1
             if (checkMemeberExists())
             {
                 Response.Write("<script>alert('Member ID Already Exists, Please try other IDs');</script>");
+                clearForm();
+            }
+            else if (boxEmpty())
+            {
+                Response.Write("<script>alert('One or More Text-Boxes are empty!');</script>");
+                clearForm();
             }
             else
             {
@@ -60,34 +66,65 @@ namespace WebApplication1
         }
         void signUpNewMember()
         {
-            //Response.Write("<script>alert('Testing');</script>");
-            try
+            if (!checkMemeberExists())
             {
-                SqlConnection con = new SqlConnection(strcon);
-                if (con.State == System.Data.ConnectionState.Closed)
+                try
                 {
-                    con.Open();
-                }
-                SqlCommand cmd = new SqlCommand("INSERT INTO member_master_tbl(full_name,dob,contact_no,email,state,city,zipcode,full_address,member_id,password,account_status) values(@full_name,@dob,@contact_no,@email,@state,@city,@zipcode,@full_address,@member_id,@password,@account_status)", con);
-                cmd.Parameters.AddWithValue("@full_name", TextBox1.Text.Trim());
-                cmd.Parameters.AddWithValue("@dob", TextBox2.Text.Trim());
-                cmd.Parameters.AddWithValue("@contact_no", TextBox3.Text.Trim());
-                cmd.Parameters.AddWithValue("@email", TextBox4.Text.Trim());
-                cmd.Parameters.AddWithValue("@state", DropDownList1.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@city", TextBox6.Text.Trim());
-                cmd.Parameters.AddWithValue("@zipcode", TextBox7.Text.Trim());
-                cmd.Parameters.AddWithValue("@full_address", TextBox5.Text.Trim());
-                cmd.Parameters.AddWithValue("@member_id", TextBox8.Text.Trim());
-                cmd.Parameters.AddWithValue("@password", TextBox9.Text.Trim());
-                cmd.Parameters.AddWithValue("@account_status", "pending");
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == System.Data.ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand cmd = new SqlCommand("INSERT INTO member_master_tbl(full_name,dob,contact_no,email,state,city,zipcode,full_address,member_id,password,account_status) values(@full_name,@dob,@contact_no,@email,@state,@city,@zipcode,@full_address,@member_id,@password,@account_status)", con);
+                    cmd.Parameters.AddWithValue("@full_name", TextBox1.Text.Trim());
+                    cmd.Parameters.AddWithValue("@dob", TextBox2.Text.Trim());
+                    cmd.Parameters.AddWithValue("@contact_no", TextBox3.Text.Trim());
+                    cmd.Parameters.AddWithValue("@email", TextBox4.Text.Trim());
+                    cmd.Parameters.AddWithValue("@state", DropDownList1.SelectedItem.Value);
+                    cmd.Parameters.AddWithValue("@city", TextBox6.Text.Trim());
+                    cmd.Parameters.AddWithValue("@zipcode", TextBox7.Text.Trim());
+                    cmd.Parameters.AddWithValue("@full_address", TextBox5.Text.Trim());
+                    cmd.Parameters.AddWithValue("@member_id", TextBox8.Text.Trim());
+                    cmd.Parameters.AddWithValue("@password", TextBox9.Text.Trim());
+                    cmd.Parameters.AddWithValue("@account_status", "pending");
 
-                cmd.ExecuteNonQuery();
-                con.Close();
-                Response.Write("<script>alert('Sign Up Successful.Go to User Login to Login');</script>");
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Response.Write("<script>alert('Sign Up Successful.Go to User Login to Login');</script>");
+                    clearForm();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.Message + " ');</script>");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                Response.Write("<script>alert('" + ex.Message + " ');</script>");
+                Response.Write("<script>alert('Invlid House ID.');</script>");
+            }
+        }
+        void clearForm()
+        {
+            TextBox1.Text = "";
+            TextBox2.Text = "";
+            TextBox3.Text = "";
+            TextBox4.Text = "";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
+            TextBox7.Text = "";
+            TextBox8.Text = "";
+            TextBox7.Text = "";
+        }
+
+        bool boxEmpty()
+        {
+            if (TextBox1.Text == "" || TextBox2.Text == "" || TextBox3.Text == "" || TextBox4.Text == "" || TextBox5.Text == "" || TextBox6.Text == "" || TextBox7.Text == "" || TextBox8.Text == "" || TextBox9.Text == "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

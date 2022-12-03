@@ -36,6 +36,11 @@ namespace WebApplication1
                 Response.Write("<script>alert('Appointment Exists Or Not Available!');</script>");
                 clearForm();
             }
+            else if (checkDateTimeBox())                                            // Check for Date & Time Text-Boxes
+            {
+                Response.Write("<script>alert('Appointment Date & Time is required!');</script>");
+                clearForm();
+            }
             else
             {
                 createAppointment();
@@ -244,6 +249,18 @@ namespace WebApplication1
             catch (Exception ex)
             {
 
+            }
+        }
+
+        bool checkDateTimeBox()
+        {
+            if (TextBox5.Text == "" || TextBox6.Text == "")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
