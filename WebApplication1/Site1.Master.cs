@@ -25,7 +25,7 @@ namespace WebApplication1
 
                     LinkButton11.Visible = false;                                       // If no one logging in 'agents' should not be shown
                     LinkButton12.Visible = false;                                       // The same for 'appointments'
-                    LinkButton8.Visible = false;                                        // The same for 'appointments management'
+                    LinkButton8.Visible = true;                                        // The same for 'appointments management'
                     LinkButton9.Visible = false;                                        // The same for 'house management'
                     LinkButton10.Visible = false;                                       // The same for 'member management'
                 }
@@ -39,9 +39,9 @@ namespace WebApplication1
                     LinkButton7.Visible = true;                                         // The same for 'hello user'
                     LinkButton7.Text = "Hello  " + Session["username"].ToString();      // Output "Hello user_name"
 
-                    LinkButton11.Visible = true;                                        // If User logs in in 'agents' should not be shown
-                    LinkButton12.Visible = false;                                       // The same for 'appointments'
-                    LinkButton8.Visible = false;                                        // The same for 'appointments management'
+                    LinkButton11.Visible = false;                                        // If User logs in in 'agents' should not be shown
+                    LinkButton12.Visible = true;                                        // The same for 'appointments'
+                    LinkButton8.Visible = false;                                         // The same for 'appointments management'
                     LinkButton9.Visible = false;                                        // The same for 'house management'
                     LinkButton10.Visible = false;                                       // The same for 'member management'
                 }

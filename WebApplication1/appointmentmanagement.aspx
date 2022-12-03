@@ -84,18 +84,16 @@
                                 <label>Agent Id</label>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Agent ID"></asp:TextBox>
-                                        <asp:Button class="btn btn-primary" ID="Button6" runat="server" Text="Find" OnClick="Button6_Click" />
+                                        <asp:TextBox CssClass="form-control" ID="TextBox4" runat="server" placeholder="Agent Name" ReadOnly="True"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-md-6">
-                                <label>APPOINTMENT ID</label>
+                                <label>Owner Name</label>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Appointment ID"></asp:TextBox>
-                                        <asp:Button class="btn btn-primary" ID="Button5" runat="server" Text="Find" OnClick="Button5_Click" />
+                                        <asp:TextBox CssClass="form-control" ID="TextBox3" runat="server" placeholder="Owner Name" ReadOnly="True"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -165,8 +163,8 @@
                                         <asp:BoundField DataField="member_name" HeaderText="Member Name" SortExpression="member_name" />
                                         <asp:BoundField DataField="house_id" HeaderText="House ID" SortExpression="house_id" />
                                         <asp:BoundField DataField="house_address" HeaderText="House Address" SortExpression="house_address" />
-                                        <asp:BoundField DataField="agent_id" HeaderText="Agent ID" SortExpression="agent_id" />
-                                        <asp:BoundField DataField="appointment_id" HeaderText="Appointment ID" SortExpression="appointment_id" />
+                                        <asp:BoundField DataField="agent_name" HeaderText="Agent Name" SortExpression="agent_name" />
+                                        <asp:BoundField DataField="owner_name" HeaderText="Owner Name" SortExpression="owner_name" />
                                         <asp:BoundField DataField="appointment_date" HeaderText="Appointment Date" SortExpression="appointment_date" />
                                         <asp:BoundField DataField="appointment_time" HeaderText="Appointment Time" SortExpression="appointment_time" />
                                     </Columns>

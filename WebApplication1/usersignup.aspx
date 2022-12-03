@@ -41,9 +41,9 @@
                             </div>
 
                             <div class="col-md-6">
-                                 <label>Member Sign-up Date</label>
+                                 <label>Date of Birth</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Sign-up Date" TextMode="Date"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="DOB" TextMode="Date"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
@@ -145,9 +145,9 @@
                         
                         <div class="row">
                             <div class="col">
-                                <label>Full Address</label>
+                                <label>Street Address</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Full Address" TextMode="MultiLine" Rows="2"></asp:TextBox>
+                                    <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Street Address" TextMode="MultiLine" Rows="2"></asp:TextBox>
                                 </div>
                             </div>
                         </div>

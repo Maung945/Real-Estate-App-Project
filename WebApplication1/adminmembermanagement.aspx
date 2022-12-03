@@ -74,10 +74,10 @@
 
                         <div class="row">
                             <div class="col-md-3">
-                                <label>User Since</label>
+                                <label>Date of Birth</label>
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <asp:TextBox CssClass="form-control" ID="TextBox10" runat="server" placeholder="Member Since" ReadOnly="True" TextMode="Date"></asp:TextBox>
+                                        <asp:TextBox CssClass="form-control" ID="TextBox10" runat="server" placeholder="Date of Birth" ReadOnly="True" TextMode="Date"></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -176,7 +176,7 @@
                                         <asp:BoundField DataField="member_id" HeaderText="ID" ReadOnly="True" SortExpression="member_id" />
                                         <asp:BoundField DataField="full_name" HeaderText="Name" SortExpression="full_name" />
                                         <asp:BoundField DataField="account_status" HeaderText="Account Status" SortExpression="account_status" />
-                                        <asp:BoundField DataField="member_since" HeaderText="Member Since" SortExpression="member_since" />
+                                        <asp:BoundField DataField="dob" HeaderText="Date of Birth" SortExpression="dob" />
                                         <asp:BoundField DataField="contact_no" HeaderText="Phone No:" SortExpression="contact_no" />
                                         <asp:BoundField DataField="email" HeaderText="Email" SortExpression="email" />
                                         <asp:BoundField DataField="state" HeaderText="State" SortExpression="state" />

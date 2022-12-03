@@ -117,20 +117,20 @@ namespace WebApplication1
                         con.Open();
                     }
 
-                    SqlCommand cmd = new SqlCommand("UPDATE house_master_tbl set house_address=@house_address, property_type=@property_type, price=@price, price_persqft=@price_persqft, agent_id=@agent_id, appointment_id=@appointment_id, year_built=@year_built, rooms=@rooms, bathrooms=@bathrooms, offers=@offers, owner_name=@owner_name, on_appointment=@on_appointment, house_description=@house_description, house_img_link=@house_img_link where house_id='" + TextBox2.Text.Trim() + "'", con);
+                    SqlCommand cmd = new SqlCommand("UPDATE house_master_tbl set house_address=@house_address, property_type=@property_type, price=@price, sq_ft=@sq_ft, agent_id=@agent_id, agent_name=@agent_name, year_built=@year_built, rooms=@rooms, bathrooms=@bathrooms, garage_spaces=@garage_spaces, owner_name=@owner_name, units=@units, house_description=@house_description, house_img_link=@house_img_link where house_id='" + TextBox2.Text.Trim() + "'", con);
 
                     cmd.Parameters.AddWithValue("@house_address", TextBox9.Text.Trim());
                     cmd.Parameters.AddWithValue("@property_type", propertyType);                        // Passing 'propertyType'
                     cmd.Parameters.AddWithValue("@price", TextBox10.Text.Trim());
-                    cmd.Parameters.AddWithValue("@price_persqft", TextBox11.Text.Trim());
+                    cmd.Parameters.AddWithValue("@sq_ft", TextBox11.Text.Trim());
                     cmd.Parameters.AddWithValue("@agent_id", DropDownList2.SelectedItem.Value);
-                    cmd.Parameters.AddWithValue("@appointment_id", TextBox19.Text.Trim());
+                    cmd.Parameters.AddWithValue("@agent_name", TextBox19.Text.Trim());
                     cmd.Parameters.AddWithValue("@year_built", TextBox13.Text.Trim());
                     cmd.Parameters.AddWithValue("@rooms", TextBox14.Text.Trim());
                     cmd.Parameters.AddWithValue("@bathrooms", TextBox15.Text.Trim());
-                    cmd.Parameters.AddWithValue("@offers", TextBox16.Text.Trim());
+                    cmd.Parameters.AddWithValue("@garage_spaces", TextBox16.Text.Trim());
                     cmd.Parameters.AddWithValue("@owner_name", TextBox3.Text.Trim());
-                    cmd.Parameters.AddWithValue("@on_appointment", TextBox4.Text.Trim());
+                    cmd.Parameters.AddWithValue("@units", TextBox4.Text.Trim());
                     cmd.Parameters.AddWithValue("@house_description", TextBox7.Text.Trim());
                     cmd.Parameters.AddWithValue("@house_img_link", filepath);                           // Filepath is being passed here
 
@@ -168,7 +168,6 @@ namespace WebApplication1
                     {
                         DropDownList2.Text = dr.GetValue(0).ToString();          // agent_ID
                         TextBox19.Text = dr.GetValue(1).ToString();              // Agent Name
-
                     }
                 }
                 else
@@ -199,15 +198,15 @@ namespace WebApplication1
                 {
                     TextBox9.Text = dt.Rows[0]["house_address"].ToString();
                     TextBox10.Text = dt.Rows[0]["price"].ToString();
-                    TextBox11.Text = dt.Rows[0]["price_persqft"].ToString();
+                    TextBox11.Text = dt.Rows[0]["sq_ft"].ToString();
                     TextBox13.Text = dt.Rows[0]["year_built"].ToString().Trim();
                     TextBox14.Text = dt.Rows[0]["rooms"].ToString().Trim();
                     TextBox15.Text = dt.Rows[0]["bathrooms"].ToString().Trim();
-                    TextBox16.Text = dt.Rows[0]["offers"].ToString().Trim();
+                    TextBox16.Text = dt.Rows[0]["garage_spaces"].ToString().Trim();
                     TextBox3.Text = dt.Rows[0]["owner_name"].ToString();
-                    TextBox4.Text = dt.Rows[0]["on_appointment"].ToString().Trim();
+                    TextBox4.Text = dt.Rows[0]["units"].ToString().Trim();
                     TextBox7.Text = dt.Rows[0]["house_description"].ToString();
-                    TextBox19.Text = dt.Rows[0]["appointment_id"].ToString().Trim();
+                    TextBox19.Text = dt.Rows[0]["agent_name"].ToString().Trim();
                     DropDownList2.SelectedValue = dt.Rows[0]["agent_id"].ToString().Trim();             //DropDown Lists
                     //DropDownList3.SelectedValue = dt.Rows[0]["appointment_id"].ToString().Trim();
 
@@ -322,23 +321,23 @@ namespace WebApplication1
                 {
                     con.Open();
                 }
-                SqlCommand cmd = new SqlCommand("INSERT INTO house_master_tbl (house_id,house_address,property_type,price,price_persqft,agent_id,appointment_id,year_built,rooms,bathrooms,offers,owner_name,on_appointment,house_description,house_img_link) values (@house_id,@house_address,@property_type,@price,@price_persqft,@agent_id,@appointment_id,@year_built,@rooms,@bathrooms,@offers,@owner_name,@on_appointment,@house_description,@house_img_link)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO house_master_tbl (house_id,house_address,property_type,price,sq_ft,agent_id,agent_name,year_built,rooms,bathrooms,garage_spaces,owner_name,units,house_description,house_img_link) values (@house_id,@house_address,@property_type,@price,@sq_ft,@agent_id,@agent_name,@year_built,@rooms,@bathrooms,@garage_spaces,@owner_name,@units,@house_description,@house_img_link)", con);
 
                 cmd.Parameters.AddWithValue("@house_id", TextBox2.Text.Trim());
                 cmd.Parameters.AddWithValue("@house_address", TextBox9.Text.Trim());
                 cmd.Parameters.AddWithValue("@property_type", propertyType);            // Passing 'propertyType'
                 cmd.Parameters.AddWithValue("@price", TextBox10.Text.Trim());
-                cmd.Parameters.AddWithValue("@price_persqft", TextBox11.Text.Trim());
+                cmd.Parameters.AddWithValue("@sq_ft", TextBox11.Text.Trim());
                 cmd.Parameters.AddWithValue("@agent_id", DropDownList2.SelectedItem.Value);
                 //cmd.Parameters.AddWithValue("@appointment_id", DropDownList3.SelectedItem.Value);
-                cmd.Parameters.AddWithValue("@appointment_id", TextBox19.Text.Trim());
+                cmd.Parameters.AddWithValue("@agent_name", TextBox19.Text.Trim());
                 
                 cmd.Parameters.AddWithValue("@year_built", TextBox13.Text.Trim());
                 cmd.Parameters.AddWithValue("@rooms", TextBox14.Text.Trim());
                 cmd.Parameters.AddWithValue("@bathrooms", TextBox15.Text.Trim());
-                cmd.Parameters.AddWithValue("@offers", TextBox16.Text.Trim());
+                cmd.Parameters.AddWithValue("@garage_spaces", TextBox16.Text.Trim());
                 cmd.Parameters.AddWithValue("@owner_name", TextBox3.Text.Trim());
-                cmd.Parameters.AddWithValue("@on_appointment", TextBox4.Text.Trim());
+                cmd.Parameters.AddWithValue("@units", TextBox4.Text.Trim());
                 cmd.Parameters.AddWithValue("@house_description", TextBox7.Text.Trim());
                 cmd.Parameters.AddWithValue("@house_img_link", filepath);
 

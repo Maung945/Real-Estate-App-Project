@@ -7,10 +7,16 @@
         });
     </script>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <div classs="container">
         <div class="row">
+            
+
+
+
+                     
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
@@ -75,7 +81,7 @@
                 <a href="homepage.aspx"><< Back to Home</a><br>
                 <br>
             </div>
-
+            
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
@@ -103,6 +109,9 @@
                     </div>
                 </div>
             </div>
+            
+
+
 
         </div>
     </div>

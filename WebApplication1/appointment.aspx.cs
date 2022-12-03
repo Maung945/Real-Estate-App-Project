@@ -19,6 +19,7 @@ namespace WebApplication1
             GridView1.DataBind();
         }
 
+        
         // Add Button
         protected void Button2_Click(object sender, EventArgs e)
         {
@@ -204,5 +205,6 @@ namespace WebApplication1
             TextBox1.Text = "";
             TextBox2.Text = "";
         }
+        
     }
 }

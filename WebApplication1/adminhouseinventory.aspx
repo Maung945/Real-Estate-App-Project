@@ -171,9 +171,9 @@
 
                         <div class="row">
                             <div class="col-md-4">
-                                <label>Offers</label>
+                                <label>Garage Spaces</label>
                                 <div class="form-group">
-                                    <asp:TextBox CssClass="form-control mr-1" ID="TextBox16" runat="server" placeholder="Offers" ReadOnly="False" TextMode="Number"></asp:TextBox>                             
+                                    <asp:TextBox CssClass="form-control mr-1" ID="TextBox16" runat="server" placeholder="Garage Spaces" ReadOnly="False" TextMode="Number"></asp:TextBox>                             
                                 </div>
                             </div>
 
@@ -264,7 +264,7 @@
                                                                 <div class="col-12">
                                                                     Price-
                                                                     <asp:Label ID="Label2" runat="server" Font-Bold="True" Text='<%# Eval("price") %>'></asp:Label>
-                                                                    &nbsp;| Sq.Ft-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("price_persqft") %>'></asp:Label>
+                                                                    &nbsp;| Sq.Ft-&nbsp;<asp:Label ID="Label4" runat="server" Font-Bold="True" Text='<%# Eval("sq_ft") %>'></asp:Label>
                                                                     &nbsp;| Property Type-<asp:Label ID="Label3" runat="server" Font-Bold="True" Text='<%# Eval("property_type") %>'></asp:Label>
                                                                     &nbsp;
                                                                 </div>
@@ -277,18 +277,17 @@
                                                                     <asp:Label ID="Label6" runat="server" Font-Bold="True" Text='<%# Eval("rooms") %>'></asp:Label>
                                                                     &nbsp;| Bathrooms-
                                                                     <asp:Label ID="Label7" runat="server" Font-Bold="True" Text='<%# Eval("bathrooms") %>'></asp:Label>
-                                                                    &nbsp;| Offers-
-                                                                    <asp:Label ID="Label8" runat="server" Font-Bold="True" Text='<%# Eval("offers") %>'></asp:Label>
+                                                                    &nbsp;| Garage Spaces-
+                                                                    <asp:Label ID="Label8" runat="server" Font-Bold="True" Text='<%# Eval("garage_spaces") %>'></asp:Label>
                                                                     &nbsp;| Units-
-                                                                    <asp:Label ID="Label9" runat="server" Font-Bold="True" Text='<%# Eval("on_appointment") %>'></asp:Label>
-
+                                                                    <asp:Label ID="Label9" runat="server" Font-Bold="True" Text='<%# Eval("units") %>'></asp:Label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-12">
                                                                     
                                                                     Agent Name-
-                                                                    <asp:Label ID="Label11" runat="server" Font-Bold="True" Text='<%# Eval("appointment_id") %>'></asp:Label>
+                                                                    <asp:Label ID="Label11" runat="server" Font-Bold="True" Text='<%# Eval("agent_name") %>'></asp:Label>
                                                                     &nbsp;| Owner Name-
                                                                     <asp:Label ID="Label12" runat="server" Font-Bold="True" Text='<%# Eval("owner_name") %>'></asp:Label>
 
