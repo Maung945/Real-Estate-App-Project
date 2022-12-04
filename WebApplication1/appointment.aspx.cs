@@ -57,7 +57,11 @@ namespace WebApplication1
             }
 
         }
-
+        //Update Button Click
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            updateAppointment();
+        }
         // CANCEL button
         protected void Button4_Click(object sender, EventArgs e)
         {
@@ -110,6 +114,38 @@ namespace WebApplication1
             }
         }
 
+        void updateAppointment()
+        {
+            if (checkHouseExists())
+            {
+                try
+                {
+                    SqlConnection con = new SqlConnection(strcon);
+                    if (con.State == System.Data.ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+                    SqlCommand cmd = new SqlCommand("UPDATE appointment_management_master_tbl set member_id=@member_id, member_name=@member_name, house_id=@house_id, house_address=@house_address, agent_name=@agent_name, owner_name=@owner_name, appointment_date=@appointment_date, appointment_time=@appointment_time where house_id='" + TextBox8.Text.Trim() + "'", con);
+                    cmd.Parameters.AddWithValue("@member_id", TextBox1.Text.Trim());
+                    cmd.Parameters.AddWithValue("@member_name", TextBox2.Text.Trim());
+                    cmd.Parameters.AddWithValue("@house_id", TextBox8.Text.Trim());
+                    cmd.Parameters.AddWithValue("@house_address", TextBox7.Text.Trim());
+                    cmd.Parameters.AddWithValue("@agent_name", TextBox4.Text.Trim());
+                    cmd.Parameters.AddWithValue("@owner_name", TextBox3.Text.Trim());
+                    cmd.Parameters.AddWithValue("@appointment_date", TextBox5.Text.Trim());
+                    cmd.Parameters.AddWithValue("@appointment_time", TextBox6.Text.Trim());
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    Response.Write("<script>alert('Appointment Updated Successfully');</script>");
+                    clearForm();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write("<script>alert('" + ex.Message + " ');</script>");
+                }
+            }
+        }
         void cancelAppointment()
         {
             try
@@ -284,6 +320,5 @@ namespace WebApplication1
             TextBox5.Text = "";
             TextBox6.Text = "";
         }
-
     }
 }
