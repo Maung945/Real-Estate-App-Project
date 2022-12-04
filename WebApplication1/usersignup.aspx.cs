@@ -17,20 +17,24 @@ namespace WebApplication1
         // Sign-up buttton click event
         protected void Button1_Click(object sender, EventArgs e)
         {
+            
+            
             if (checkMemeberExists())
             {
                 Response.Write("<script>alert('Member ID Already Exists, Please try other IDs');</script>");
                 clearForm();
             }
-            else if (boxEmpty())
+            
+            if (boxEmpty())
             {
                 Response.Write("<script>alert('One or More Text-Boxes are empty!');</script>");
-                clearForm();
+                //clearForm();
             }
             else
             {
                 signUpNewMember();
             }
+            
         }
 
         // user defined method
@@ -75,7 +79,7 @@ namespace WebApplication1
                     {
                         con.Open();
                     }
-                    SqlCommand cmd = new SqlCommand("INSERT INTO member_master_tbl(full_name,dob,contact_no,email,state,city,zipcode,full_address,member_id,password,account_status) values(@full_name,@dob,@contact_no,@email,@state,@city,@zipcode,@full_address,@member_id,@password,@account_status)", con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO member_master_tbl(full_name,dob,contact_no,email,state,city,zipcode,street_address,member_id,password,account_status) values(@full_name,@dob,@contact_no,@email,@state,@city,@zipcode,@street_address,@member_id,@password,@account_status)", con);
                     cmd.Parameters.AddWithValue("@full_name", TextBox1.Text.Trim());
                     cmd.Parameters.AddWithValue("@dob", TextBox2.Text.Trim());
                     cmd.Parameters.AddWithValue("@contact_no", TextBox3.Text.Trim());
@@ -83,7 +87,7 @@ namespace WebApplication1
                     cmd.Parameters.AddWithValue("@state", DropDownList1.SelectedItem.Value);
                     cmd.Parameters.AddWithValue("@city", TextBox6.Text.Trim());
                     cmd.Parameters.AddWithValue("@zipcode", TextBox7.Text.Trim());
-                    cmd.Parameters.AddWithValue("@full_address", TextBox5.Text.Trim());
+                    cmd.Parameters.AddWithValue("@street_address", TextBox5.Text.Trim());
                     cmd.Parameters.AddWithValue("@member_id", TextBox8.Text.Trim());
                     cmd.Parameters.AddWithValue("@password", TextBox9.Text.Trim());
                     cmd.Parameters.AddWithValue("@account_status", "pending");
