@@ -104,8 +104,7 @@
                         <div class="row">
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT * FROM [agent_master_tbl]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" CellPadding="0" DataSourceID="SqlDataSource1">
-                                </asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" CellPadding="0" DataSourceID="SqlDataSource1"></asp:GridView>
                             </div>
                         </div>
                     </div>

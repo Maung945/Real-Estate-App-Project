@@ -132,5 +132,10 @@ namespace WebApplication1
 
             Response.Redirect("homepage.aspx");                                 // This line takes you back to 'Home' once logged out.
         }
+
+        protected void LinkButton7_Click1(object sender, EventArgs e)
+        {
+            Response.Redirect("userprofile.aspx");
+        }
     }
 }
