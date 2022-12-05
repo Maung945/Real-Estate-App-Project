@@ -157,7 +157,15 @@
                         </div>
 
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT * FROM [appointment_management_master_tbl]"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT [member_id]
+                                  ,[member_name]
+                                  ,b.[house_id]
+                                  ,a.[house_address]
+                                  ,a.[agent_name]
+                                  ,a.[owner_name]
+                                  ,[appointment_date]
+                                  ,[appointment_time] FROM house_master_tbl as a
+                              join appointment_management_master_tbl as b ON a.house_id = b.house_id"></asp:SqlDataSource>
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                                     <Columns>

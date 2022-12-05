@@ -63,7 +63,7 @@ namespace WebApplication1
                     con.Open();
                 }
 
-                SqlCommand cmd = new SqlCommand("SELECT * FROM appointment_management_master_tbl WHERE member_id='" + Session["username"].ToString() + "'", con);
+                SqlCommand cmd = new SqlCommand("SELECT [member_id],[member_name],b.[house_id],a.[house_address],a.[agent_name],a.[owner_name],[appointment_date],[appointment_time] FROM house_master_tbl as a join appointment_management_master_tbl as b ON a.house_id = b.house_id WHERE member_id='" + Session["username"].ToString() + "'", con);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);                                                // Data is filled in the table

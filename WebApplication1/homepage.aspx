@@ -107,9 +107,9 @@
                 <div class="col-md-4">
                     <center>
                         <img width="150px" src="images/calculator.png" />
-                        <h4>Morgage Loan Calculator </h4>
+                        <h4>Morgage Loan Calculator (COMING SOON..)</h4>
                         <p class="text-justify">
-                            Check out to see the mortgae payment an other fees. Raach out to one of our agent to see
+                            Check out to see the mortgae payment an other fees. Rach out to one of our agent to see
                         if you are quilified
                        
                         </p>
