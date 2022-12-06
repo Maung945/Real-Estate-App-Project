@@ -25,9 +25,9 @@
                         <img width="150px" src="images/deal.png" />
                         <h4>Houses </h4>
                         <p class="text-justify">
-                            Sell Your Home With An Expert Who Knows Your Neighborhood And Can Get You The Best Price.
-                     Real Estate App Agents Sell Homes 5 Days Faster On Average Than Agents From Other Brokerages. Reinventing Real Estate.
-                       
+                            Sell your house with an agent who knows how to get eyes on your home! 
+                            Our Real Estate App Agents can get your house seen and sold faster than other websites, 
+                            for a fraction of the fee! Reinventing Real Estate.
                         </p>
 
                     </center>
@@ -38,9 +38,9 @@
                         <img width="150px" src="images/calendar.png" />
                         <h4>Make an Appointment </h4>
                         <p class="text-justify">
-                            Our highly qualified will guide you and teach you to get the best out of your home. If you are 
-                        searching for a home, our real esteate agents are available 24/7 around the clock. Click below to make an appointment today
-                       
+                            Schedule an appointment with a house of your choice! 
+                            Simply specify the House ID, and pick your date and time to check out the property! 
+                            Create an account to make an appointment today!
                         </p>
                     </center>
                 </div>
@@ -50,9 +50,9 @@
                         <img width="150px" src="images/search.png" />
                         <h4>Search Houses </h4>
                         <p class="text-justify">
-                            Find your place with an immersive photo experience and the most listings, 
-                        including things you won’t find anywhere else.
-                       
+                            Find your dream home in our extensive catalogue of properties. 
+                            With a variety of styles, layouts, and locations, you are sure to find the house of your dreams! 
+                            Enter any search term into the search bar and filter through our catalogue in real time!
                         </p>
                     </center>
                 </div>
@@ -85,9 +85,8 @@
                         <img width="150px" src="images/signup%20(1).png" />
                         <h4>Sign Up </h4>
                         <p class="text-justify">
-                            Sign Up today and become a member to get latest updates and enjoy the inside deals. 
-                        Members enjoy 30% faster sell or buy deals.
-                       
+                            Sign up to today to become a member and browse our extensive catalogue of properties for sale! 
+                            Click the Sign Up button above to join our service today!
                         </p>
                     </center>
                 </div>
@@ -97,8 +96,8 @@
                         <img width="150px" src="images/world-news.png" />
                         <h4>News & Updates </h4>
                         <p class="text-justify">
-                            Stay up-to-date with the latest news on interest and loan qualification. We update our news every hours
-                        so that our coustomers be informed.
+                            Stay up to date by subscribing to our newsletter! 
+                            Stay tuned to see the latest changes in our housing catalogue and view the newest properties available!
                        
                         </p>
                     </center>
@@ -109,9 +108,8 @@
                         <img width="150px" src="images/calculator.png" />
                         <h4>Morgage Loan Calculator (COMING SOON..)</h4>
                         <p class="text-justify">
-                            Check out to see the mortgae payment an other fees. Rach out to one of our agent to see
-                        if you are quilified
-                       
+                            Use our mortgage loan calculator to see payment options and discover your financial possibilities! 
+                            We're here to help you plan your path to becoming a homeowner.
                         </p>
                     </center>
                 </div>

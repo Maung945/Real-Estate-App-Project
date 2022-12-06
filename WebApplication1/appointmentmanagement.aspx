@@ -157,20 +157,17 @@
                         </div>
 
                         <div class="row">
-                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT [member_id]
-                                  ,[member_name]
-                                  ,b.[house_id]
-                                  ,a.[house_address]
-                                  ,a.[agent_name]
-                                  ,a.[owner_name]
-                                  ,[appointment_date]
-                                  ,[appointment_time] FROM house_master_tbl as a
-                              join appointment_management_master_tbl as b ON a.house_id = b.house_id"></asp:SqlDataSource>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:realestateappDBConnectionString %>" SelectCommand="SELECT
+                                b.[member_id],c.[full_name],b.[house_id],a.[house_address],a.[agent_name],a.[owner_name],[appointment_date],[appointment_time] 
+                                FROM house_master_tbl as a 
+                                join appointment_management_master_tbl as b ON a.house_id = b.house_id 
+                                join member_master_tbl as c on c.member_id = b.member_id"></asp:SqlDataSource>
+                                
                             <div class="col">
                                 <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
                                     <Columns>
                                         <asp:BoundField DataField="member_id" HeaderText="Member ID" SortExpression="member_id" />
-                                        <asp:BoundField DataField="member_name" HeaderText="Member Name" SortExpression="member_name" />
+                                        <asp:BoundField DataField="full_name" HeaderText="Full Name" SortExpression="full_name" />
                                         <asp:BoundField DataField="house_id" HeaderText="House ID" SortExpression="house_id" />
                                         <asp:BoundField DataField="house_address" HeaderText="House Address" SortExpression="house_address" />
                                         <asp:BoundField DataField="agent_name" HeaderText="Agent Name" SortExpression="agent_name" />
