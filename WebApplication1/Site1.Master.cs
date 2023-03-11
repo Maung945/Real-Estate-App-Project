@@ -11,7 +11,7 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+ /*           try
             {
                 if (Session["role"].Equals(""))
                 {
@@ -65,7 +65,7 @@ namespace WebApplication1
             {
 
             }
-
+*/
         }
 
         protected void LinkButton6_Click(object sender, EventArgs e)
