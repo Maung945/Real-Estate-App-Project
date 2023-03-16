@@ -12,10 +12,8 @@
     <link href="datatable/css/jquery.dataTables.min.css" rel="stylesheet" />
     <%--foontawesome css--%>
     <link href="fontawesome/css/all.css" rel="stylesheet" />
-
     <%--customstyle css--%>
-    <link href="CSS/customstylesheet.css" rel="stylesheet" />
-
+    <link rel="stylesheet" type="text/css" href="CSS/customstylesheet.css">
 
     <%--jquery--%>
     <script src="bootstrap/js/jquery-3.3.1.slim.min.js"></script>
@@ -30,9 +28,11 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <header>
+    </header>
     <form id="form1" runat="server">
-        <div>
-            <nav class="navbar navbar-expand-lg navbar-light">
+        <div style="filter: invert(1);">
+            <nav class="navbar navbar-expand-lg navbar-light" style="font-size: 1.2em; font-weight: bold;">
                 <a class="navbar-brand" href="#">
                     <img src="images/house%20(1).png" width=" 30" height=" 30" />
                     Real Estate App
@@ -49,23 +49,20 @@
                     </ul>
 
                     <ul class="navbar-nav">
-                        <li class="nav-item active">
+                        <li>
                             <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">View Houses</asp:LinkButton>
                         </li>
-
-                        <li class="nav-item active">
+                        <li>
                             <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">User Login</asp:LinkButton>
                         </li>
-                        <li class="nav-item active">
+                        <li>
                             <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Sign Up</asp:LinkButton>
                         </li>
-                        <li class="nav-item active">
+                        <li>
                             <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" Visible="False" OnClick="LinkButton3_Click">Logout</asp:LinkButton>
                         </li>
-
-                        <li class="nav-item active">
+                        <li>
                             <asp:LinkButton class="nav-link" ID="LinkButton7" runat="server" Visible="False" OnClick="LinkButton7_Click1">Hello user</asp:LinkButton>
-
                         </li>
                     </ul>
                 </div>
