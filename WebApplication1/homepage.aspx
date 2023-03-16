@@ -1,72 +1,67 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="homepage.aspx.cs" Inherits="WebApplication1.homepage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<link rel="stylesheet" type="text/css" href="CSS/homepage.css">
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
     <section>
-        <img src="images/background5.jpg" class="img-fluid" /><br>
-        <br>
+        <img src="images/background5.jpg" id="main" loading ="lazy"/>
     </section>
 
     <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <center>
-                        <h2>Real Estate App Features</h2>
-                    </center>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-4">
-                    <center>
-                        <img width="150px" src="images/deal.png" />
-                        <h4>Houses </h4>
-                        <p class="text-justify">
-                            Sell your house with an agent who knows how to get eyes on your home! 
-                            Our Real Estate App Agents can get your house seen and sold faster than other websites, 
-                            for a fraction of the fee! Reinventing Real Estate.
-                        </p>
-
-                    </center>
-                </div>
-
-                <div class="col-md-4">
-                    <center>
-                        <img width="150px" src="images/calendar.png" />
-                        <h4>Make an Appointment </h4>
-                        <p class="text-justify">
-                            Schedule an appointment with a house of your choice! 
-                            Simply specify the House ID, and pick your date and time to check out the property! 
-                            Create an account to make an appointment today!
-                        </p>
-                    </center>
-                </div>
-
-                <div class="col-md-4">
-                    <center>
-                        <img width="150px" src="images/search.png" />
-                        <h4>Search Houses </h4>
-                        <p class="text-justify">
-                            Find your dream home in our extensive catalogue of properties. 
-                            With a variety of styles, layouts, and locations, you are sure to find the house of your dreams! 
-                            Enter any search term into the search bar and filter through our catalogue in real time!
-                        </p>
-                    </center>
-                </div>
-
-            </div>
+    <div class="container text-center" id="container1">
+        <div class="col-md-12">
+            <center>
+                <h2>Real Estate App Features</h2>
+            </center>
         </div>
+        <div class="row">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <center>
+                <img width="150px" src="images/deal.png">
+                <h4>Houses </h4>
+                <p class="text-justify">
+                    Sell your house with an agent who knows how to get eyes on your home! 
+                    Our Real Estate App Agents can get your house seen and sold faster than other websites, 
+                    for a fraction of the fee! Reinventing Real Estate.
+                </p>
+            </center>
         </div>
 
-   
-    </section>
+        <div class="col-md-4">
+            <center>
+                <img width="150px" src="images/calendar.png">
+                <h4>Make an Appointment </h4>
+                <p class="text-justify">
+                    Schedule an appointment with a house of your choice! 
+                    Simply specify the House ID, and pick your date and time to check out the property! 
+                    Create an account to make an appointment today!
+                </p>
+            </center>
+        </div>
+
+        <div class="col-md-4">
+            <center>
+                <img width="150px" src="images/search.png">
+                <h4>Search Houses </h4>
+                <p class="text-justify">
+                    Find your dream home in our extensive catalogue of properties. 
+                    With a variety of styles, layouts, and locations, you are sure to find the house of your dreams! 
+                    Enter any search term into the search bar and filter through our catalogue in real time!
+                </p>
+            </center>
+        </div>
+    </div>
+</section>
 
     <section>
-        <img src="images/below.jpg" class="img-fluid" /><br>
-        <br>
+        <img src="images/below.jpg" id="main2" />
     </section>
 
     <section>
@@ -119,9 +114,21 @@
                 <p><b>Click below to Access Features</b></p>
             </center>
         </div>
-        </div>
-
-   
+ 
     </section>
 
+    <script> 
+        let main = document.getElementById('main');
+        let container1 = document.getElementById('container1');
+        let main2 = document.getElementById('main2');
+
+        window.addEventListener('scroll', function () {
+            let value = window.scrollY;
+            main.style.transform = 'translateY(' + value * 2 + 'px)';
+            //main2.style.transform = 'translateY(' + value * -2 + 'px)';
+            //container1.style.transform = 'translateX(' + value * 2 + 'px)';
+        })
+    </script>
+
 </asp:Content>
+
