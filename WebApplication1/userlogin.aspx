@@ -1,10 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="userlogin.aspx.cs" Inherits="WebApplication1.userlogin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+        function onSignIn(googleUser) {
+            // Get the Google ID token
+            var id_token = googleUser.getAuthResponse().id_token;
 
-    <div classs="container">
+            // Send the token to the server for verification
+            // You can use AJAX to make a POST request to your server with the token
+
+            // For example, using jQuery:
+            // $.post("/verifyToken", { token: id_token })
+            //    .done(function(data) { console.log(data); })
+            //    .fail(function() { console.log("Error verifying token"); });
+        }
+    </script>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container">
         <div class="row">
             <div class="col-md-4 mx-auto">
 
@@ -50,12 +66,13 @@
                                 <div class="form-group">
                                     <asp:Button class="btn btn-success btn-block btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
                                 </div>
-
                                 <div class="form-group">
-                                    <a href="usersignup.aspx">
-                                        <input class="btn btn-info btn-block btn-lg" id="Button2" type="button" value="Sign Up" />
+                                    <a href="usersignup.aspx" class="btn btn-info btn-block btn-lg">Sign Up</a>
                                 </div>
 
+                                <div class="form-group">
+                                    <div class="g-signin2" data-onsuccess="onSignIn" style="margin-top: 10px; font-size: 16px;"></div>
+                                </div>
                             </div>
                         </div>
 
@@ -67,6 +84,4 @@
             </div>
         </div>
     </div>
-
-
 </asp:Content>
