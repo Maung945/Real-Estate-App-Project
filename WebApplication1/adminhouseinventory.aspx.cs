@@ -251,17 +251,7 @@ namespace WebApplication1
                 DropDownList2.DataSource = dt;
                 DropDownList2.DataValueField = "agent_id";
                 DropDownList2.DataBind();
-                /*
-                cmd = new SqlCommand("SELECT RTRIM(LTRIM(appointment_id)) as appointment_id FROM appointment_master_tbl;", con); // Appointment ID
-                da = new SqlDataAdapter(cmd);
-                dt = new DataTable();
-                da.Fill(dt);
-                
-                
-                DropDownList3.DataSource = dt;
-                DropDownList3.DataValueField = "appointment_id";
-                DropDownList3.DataBind();
-                */
+               
             }
             catch (Exception ex)
             {
@@ -322,7 +312,6 @@ namespace WebApplication1
                     con.Open();
                 }
                 SqlCommand cmd = new SqlCommand("INSERT INTO house_master_tbl (house_id,house_address,property_type,price,sq_ft,agent_id,agent_name,year_built,rooms,bathrooms,garage_spaces,owner_name,units,house_description,house_img_link) values (@house_id,@house_address,@property_type,@price,@sq_ft,@agent_id,@agent_name,@year_built,@rooms,@bathrooms,@garage_spaces,@owner_name,@units,@house_description,@house_img_link)", con);
-
                 cmd.Parameters.AddWithValue("@house_id", TextBox2.Text.Trim());
                 cmd.Parameters.AddWithValue("@house_address", TextBox9.Text.Trim());
                 cmd.Parameters.AddWithValue("@property_type", propertyType);            // Passing 'propertyType'
@@ -351,7 +340,5 @@ namespace WebApplication1
                 Response.Write("<script>alert('" + ex.Message + " ');</script>");
             }
         }
-
-
     }
 }

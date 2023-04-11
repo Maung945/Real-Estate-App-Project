@@ -2327,6 +2327,10 @@
     <Content Include="fontawesome\webfonts\fa-v4compatibility.woff2" />
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\HouseFinderApp20230403 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\RealEstateApp20230403160002 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\RealEstateApp20230403160002 - Web Deploy1.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

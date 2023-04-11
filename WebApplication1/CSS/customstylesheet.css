@@ -1,11 +1,11 @@
-﻿.footerlinks {
-    color: #ffffff;
-    text-decoration: none !important;
+﻿.navbar-nav button {
+    color: #fff;
 }
 
-    .footerlinks:hover {
-        color: #ffd800;
-    }
+.footerlinks {
+    color: #fff;
+    text-decoration: none !important;
+}
 
 #footer1 {
     background: #28669f;
