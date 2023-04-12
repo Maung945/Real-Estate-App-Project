@@ -1,16 +1,16 @@
-﻿.navbar-nav button {
-    color: #fff;
-}
-
-.footerlinks {
-    color: #fff;
+﻿.footerlinks {
+    color: #ffffff;
     text-decoration: none !important;
 }
 
+    .footerlinks:hover {
+        color: #ffd800;
+    }
+
 #footer1 {
-    background: #28669f;
+    background: #762b00;
 }
 
 #footer2 {
-    background: #3b97eb;
+    background: #531f00;
 }

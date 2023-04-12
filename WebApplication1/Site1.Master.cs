@@ -13,7 +13,7 @@ namespace WebApplication1
         {
             try
             {
-                if (Session["role"].Equals(""))
+                if ((Session["role"] == null ? "" : Session["role"].ToString()).Equals(""))
                 {
                     LinkButton1.Visible = true;                                         // If no user logging in LinkButton1->'user login' should be visible
                     LinkButton2.Visible = true;                                         // The same for LinkedButton2->'sign up'
@@ -30,7 +30,7 @@ namespace WebApplication1
                     LinkButton10.Visible = false;                                       // The same for 'member management'
                 }
 
-                else if (Session["role"].Equals("user"))                                // WHEN USER LOGGED IN
+                else if (Session["role"] != null && Session["role"].Equals("user"))                                // WHEN USER LOGGED IN
                 {
                     LinkButton1.Visible = false;                                        // When User logged in, "user login" is NOT visible
                     LinkButton2.Visible = false;                                        // The same for LinkedButton2->'sign up'
@@ -45,7 +45,7 @@ namespace WebApplication1
                     LinkButton9.Visible = false;                                        // The same for 'house management'
                     LinkButton10.Visible = false;                                       // The same for 'member management'
                 }
-                else if (Session["role"].Equals("admin"))                                // WHEN ADMIN LOGGED IN
+                else if (Session["role"] != null && Session["role"].Equals("admin"))                                // WHEN ADMIN LOGGED IN
                 {
                     LinkButton1.Visible = false;                                        // When Admin logged in, "user login" is NOT visible
                     LinkButton2.Visible = false;                                        // The same for LinkedButton2->'sign up'
@@ -63,7 +63,7 @@ namespace WebApplication1
             }
             catch (Exception ex)
             {
-
+                System.Diagnostics.Trace.WriteLine(ex.ToString());
             }
 
         }
