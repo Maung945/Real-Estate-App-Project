@@ -48,6 +48,9 @@
                         </li>
                     </ul>
 
+                <div class="search-container">
+                    <input type="text" placeholder="Search...">
+                </div>
                     <ul class="navbar-nav">
                         <li>
                             <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server" OnClick="LinkButton4_Click">View Houses</asp:LinkButton>
